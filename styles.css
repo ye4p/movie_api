@@ -1,0 +1,429 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Oswald:wght@200..700&family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap');
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: "Poppins", sans-serif;
+}
+
+body {
+    height: 2000px;
+    background-color: #2e2c2c;
+}
+
+/* Top Panel */
+.logo_text {
+    font-family: "Oswald", "Poppins", sans-serif;
+    color: green;
+    font-size: 38px;
+    /* padding-left: 65px; */
+    line-height: 60px;
+}
+
+/* Navigation buttons top */
+.top_panel {
+    width: 100vw;
+    background-color: black;
+    height: 70px;
+    display: flex;
+    justify-content: space-between;
+    gap: 0vw;
+    padding: 0 65px 0 65px;
+    width: 100%;
+    align-items: center;
+}
+
+.buttons_top {
+    width: 500px;
+    min-width: 380px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    height: 70px;
+    /* transform: translateX(-300px); */
+}
+
+.buttons_top .top_button {
+    height: 30px;
+    border: none;
+    outline: none;
+    background: none;
+    color: white;
+    font-size: 18px;
+    font-weight: 400;
+}
+
+.top_button.home {
+    font-weight: 600;
+}
+
+.extend_buttons_top {
+    width: 50px;
+    color: white;
+    display: none;
+}
+
+/* Profile buttons */
+.profile {
+    width: 200px;
+    display: flex;
+    flex-direction: row-reverse;
+    justify-content: space-between;
+    align-items: center;
+    /* transform: translateX(-70px); */
+}
+
+.profile i {
+    color: white;
+}
+
+.fa.fa-user-circle {
+    font-size: 28px;
+    display: inline;
+}
+
+.profile span {
+    color: white;
+}
+
+.theme_flip {
+    display: inline;
+}
+
+.block .moon {
+    height: 21px;
+    width: 21px;
+    position: absolute;
+    background-color: rgb(233, 203, 34);
+    border-radius: 50%;
+    transform: translate(2px, 2px);
+    transition: all 0.3s ease;
+    z-index: 100;
+}
+
+.moon .moon_inside {
+    height: 15px;
+    width: 15px;
+    position: absolute;
+    background-color: rgb(255, 255, 255);
+    border-radius: 50%;
+    transform: translate(8px, 0);
+    transition: all 0.3s ease;
+    z-index: 110;
+}
+
+.theme_flip .block {
+    background-color: white;
+    width: 50px;
+    height: 25px;
+    border-radius: 25px;
+}
+
+.theme_flip .circle {
+    z-index: 150;
+    height: 21px;
+    width: 21px;
+    position: relative;
+    background-color: rgb(0, 0, 0);
+    border-radius: 50%;
+    transform: translate(27px, 2px);
+    transition: all 0.3s ease;
+}
+
+/* Left Panel */
+.left_panel {
+    padding-top: 70px;
+    position: fixed;
+    height: 100%;
+    background-color: black;
+    width: 65px;
+    top: 0px;
+}
+
+.left_panel_button {
+    opacity: 0;
+    pointer-events: none;
+}
+
+.left_panel_button::before {
+    content: '';
+    opacity: 1;
+    width: 50px;
+    height: 10px;
+    background: rgb(0, 0, 0);
+    position: absolute;
+    top: 23px;
+    z-index: 200;
+    left: -2px;
+}
+
+.left_panel_button::after {
+    content: '';
+    opacity: 1;
+    width: 50px;
+    height: 10px;
+    background: rgb(0, 0, 0);
+    position: absolute;
+    top: 7px;
+    z-index: 200;
+    left: -2px;
+}
+
+@media (max-width: 600px) {
+
+    .left_panel,
+    .buttons_top {
+        display: none
+    }
+
+    .left_panel_button {
+        opacity: 1;
+        pointer-events: all;
+        width: 40px;
+        height: 40px;
+        background-color: white;
+        position: absolute;
+        top: 15px;
+        left: 15px;
+        z-index: 199;
+    }
+
+    .extend_buttons_top {
+        display: inline;
+    }
+
+    .top_panel {
+        padding-right: 10px;
+        justify-content: space-around;
+    }
+
+    .fa.fa-angle-double-down {
+        font-size: 24px;
+        padding: 18px;
+    }
+
+    .profile {
+        width: 63px;
+    }
+
+    .theme_flip {
+        display: none;
+    }
+
+    .fa.fa-user-circle {
+        display: none;
+    }
+}
+
+.left_icons {
+    padding-top: 20px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: center;
+    height: 600px;
+}
+
+.left_panel i {
+    color: white;
+    font-size: 24px;
+    transition: all 0.3s ease;
+}
+
+.left_panel i:hover {
+    transform: scale(1.5);
+}
+
+/* Search field */
+.search_bar {
+    position: absolute;
+    z-index: 500;
+    opacity: 0;
+    pointer-events: none;
+    transform: translate(300px, 0);
+}
+
+.search_bar.show {
+    opacity: 1;
+    pointer-events: auto;
+}
+
+.search_bar::before {
+    content: "";
+    position: absolute;
+    inset: 0;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
+    height: 50px;
+    width: 370px;
+    border-radius: 5px;
+    z-index: 499;
+    transform: translate(-100px, -10px);
+}
+
+.search_bar input {
+    position: relative;
+    z-index: 500;
+    height: 50px;
+    width: 300px;
+    outline: none;
+    border: none;
+    background: rgb(39, 39, 39);
+    transform: translate(-100px, -10px);
+    border-radius: 5px 0 0 5px;
+    padding-left: 10px;
+    font-size: 20px;
+    color: azure;
+}
+
+.search_bar button {
+    position: relative;
+    z-index: 500;
+    border: none;
+    outline: none;
+    height: 50px;
+    transform: translate(200px, -60px);
+    font-size: 20px;
+    background: #797575;
+    width: 70px;
+    border-radius: 0 5px 5px 0;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+.search_bar button:hover {
+    background: #fff;
+}
+
+.close_button {
+    position: relative;
+    z-index: 510;
+    height: 20px;
+    width: 20px;
+    border-radius: 50%;
+    background: rgb(223, 14, 14);
+    transform: translate(259px, -119px);
+    box-shadow: 0 0 4px rgb(0, 0, 0, .3);
+    transition: all 0.3s ease;
+}
+
+.close_button:hover {
+    background: #e77878;
+}
+
+.close_button::before {
+    content: '';
+    position: absolute;
+    z-index: 515;
+    width: 3px;
+    height: 14px;
+    background: black;
+    transform: translate(9px, 3px) rotate(45deg);
+    border-radius: 3px;
+}
+
+.close_button::after {
+    content: '';
+    position: absolute;
+    z-index: 515;
+    width: 3px;
+    height: 14px;
+    background: black;
+    transform: translate(9px, 3px) rotate(-45deg);
+    border-radius: 3px;
+}
+
+/* Modal Window */
+.modal_window {
+    position: fixed;
+    height: 100px;
+    width: 300px;
+    background: #d18585;
+    top: 90%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    padding: 20px;
+    border-radius: 10px;
+    border: 1px solid #da5050;
+    pointer-events: none;
+    top: 110%;
+    transition: all 0.4s ease;
+}
+
+.modal_window.show {
+    top: 90%;
+    pointer-events: auto;
+}
+
+.modal_window .button {
+    display: flex;
+    justify-content: center;
+}
+
+.modal_window .button button {
+    width: 80px;
+    height: 25px;
+    outline: none;
+    border: none;
+    border-radius: 5px;
+}
+
+.modal_close {
+    position: relative;
+    z-index: 510;
+    height: 20px;
+    width: 20px;
+    border-radius: 50%;
+    background: rgb(223, 14, 14);
+    transform: translate(270px, -105px);
+    box-shadow: 0 0 4px rgb(0, 0, 0, .3);
+    transition: all 0.3s ease;
+}
+
+.modal_close:hover {
+    background: #e77878;
+}
+
+.modal_close::before {
+    content: '';
+    position: absolute;
+    z-index: 515;
+    width: 3px;
+    height: 14px;
+    background: black;
+    transform: translate(9px, 3px) rotate(45deg);
+    border-radius: 3px;
+}
+
+.modal_close::after {
+    content: '';
+    position: absolute;
+    z-index: 515;
+    width: 3px;
+    height: 14px;
+    background: black;
+    transform: translate(9px, 3px) rotate(-45deg);
+    border-radius: 3px;
+}
+
+/* Movie Output */
+.movies_list {
+    display: flex;
+    Flex-wrap: wrap;
+    padding-left: 80px;
+    justify-content: space-between;
+}
+
+.movies_list img {
+    width: 320px;
+    margin: 30px;
+    border: solid 2px #797575;
+    border-radius: 5px;
+}
+
+/* .movie_box {
+    height: 500px;
+    width: 300px;
+    border: solid 1px;
+} */
